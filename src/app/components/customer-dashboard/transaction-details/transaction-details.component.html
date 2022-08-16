@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <app-tab-header title="Transaction Details"></app-tab-header>
+  <!-- select-account -->
+  <div class="form-group row mt-2">
+    <label for="select-account" class="col-sm-2 col-form-label">Select Account</label>
+    <div class="col-5">
+
+      <select class="form-control" id="selectAccount" name="selectAccount" *ngIf="customer!=null"
+        (ngModelChange)="onSelect($event)" ngModel>
+        <option *ngFor="let account of customer.accounts" [ngValue]="account.accountId">{{account.accountId}} -
+          {{account.accountType}}</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="table mt-4 mb-4" *ngIf="selectedAccountId != null">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reference</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of getTransactions();let i = index" [attr.data-index]="i">
+        <td>{{i+1}}</td>
+        <td>{{transaction.initiationDate | date:'dd-MM-yyyy'}}</td>
+        <td>{{transaction.sourceAccountId}} - {{transaction.sourceOwnerName}}</td>
+        <td>{{transaction.targetAccountId}} - {{transaction.targetOwnerName}}</td>
+        <td>{{transaction.reference}}</td>
+        <td>{{transaction.amount | currency:'INR'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

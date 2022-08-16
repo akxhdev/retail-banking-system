@@ -1,0 +1,55 @@
+<!-- customer-details -->
+<div class="container-fluid" *ngIf="customer != null">
+  <app-tab-header title="Customer Details"></app-tab-header>
+  <!-- customer-id -->
+  <div class="row mt-2 mb-2">
+    <div class="col-4 col-form-lable">Customer Id</div>
+    <div class="col-5">{{customer.customerId}}</div>
+  </div>
+
+  <!-- customer-name -->
+  <div class="row mt-2 mb-2">
+    <div class="col-4 col-form-lable">Name</div>
+    <div class="col-5">{{customer.name}}</div>
+  </div>
+
+  <!-- dob -->
+  <div class="row mt-2 mb-2">
+    <div class="col-4 col-form-lable">Date Of Birth</div>
+    <div class="col-5">{{customer.dateOfBirth}}</div>
+  </div>
+
+  <!-- pan-no -->
+  <div class="row mt-2 mb-2">
+    <div class="col-4 col-form-lable">Pan</div>
+    <div class="col-5">{{customer.pan}}</div>
+  </div>
+
+  <!-- address -->
+  <div class="row mt-2 mb-2">
+    <div class="col-4 col-form-lable">Address</div>
+    <div class="col-5">{{customer.address}}</div>
+  </div>
+
+  <!-- accounts -->
+  <table class="table mt-4 mb-4">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Account Id</th>
+        <th>Opening Date</th>
+        <th>Account Type</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of customer.accounts; let i = index" [attr.data-index]="i">
+        <td>{{i+1}}</td>
+        <td>{{account.accountId}}</td>
+        <td>{{account.openingDate | date:'dd-MM-yyyy'}}</td>
+        <td>{{account.accountType}}</td>
+        <td>{{account.currentBalance | currency:'INR'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

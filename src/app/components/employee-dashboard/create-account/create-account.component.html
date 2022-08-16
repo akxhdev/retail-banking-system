@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <app-tab-header title="Customer Details"></app-tab-header>
+
+  <form class="form-inline mb-4" #customerForm="ngForm" (ngSubmit)="onSubmitCustomerForm(customerForm)">
+    <div class="input-group row">
+      <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
+      <div class="col-5">
+        <input class="form-control" id="customerId" name="customerId" placeholder="Eg: customer101" ngModel>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-primary" type="submit">Get Customer</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-danger" *ngIf="isFetchError">{{message}}</div>
+
+  <div *ngIf="customer != null">
+    <app-tab-header title="Create Account"></app-tab-header>
+    <form #accountForm="ngForm" (ngSubmit)="onSubmitAccountForm(accountForm)">
+      <!-- customer-id -->
+      <div class="form-group row mt-2">
+        <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
+        <div class="col-5">
+          <input type="text" readonly class="form-control-plaintext" name="customerId" [value]="customer.customerId">
+        </div>
+      </div>
+
+      <!-- name -->
+      <div class="form-group row mt-2">
+        <label for="ownerName" class="col-sm-2 col-form-label">Owner Name</label>
+        <div class="col-5">
+          <input type="text" readonly class="form-control-plaintext" name="ownerName" [value]="customer.name">
+        </div>
+      </div>
+
+
+      <!-- account-type -->
+      <div class="form-group row mt-2">
+        <label for="accountType" class="col-sm-2 col-form-label">Account Type</label>
+        <div class="col-5">
+          <select name="accountType" id="accountType" class="form-control" ngModel>
+            <option value="Savings">Savings Account</option>
+            <option value="Current">Current Account</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- opening-date -->
+      <div class="form-group row mt-2">
+        <label for="openingDate" class="col-sm-2 col-form-label">Opening Date</label>
+        <div class="col-5">
+          <input type="date" readonly class="form-control-plaintext" [value]="openingDate.toISOString().split('T')[0]"
+            name="openingDate">
+        </div>
+      </div>
+
+      <!-- balance -->
+      <div class="form-group row mt-2">
+        <label for="balance" class="col-sm-2 col-form-label">Balance</label>
+        <div class="col-5">
+          <input type="number" class="form-control" placeholder="Eg. 15000" name="balance" ngModel>
+        </div>
+      </div>
+
+
+      <!-- submit-button -->
+      <div class="mt-4 mb-4">
+        <button type="submit" class="btn btn-success">Create Account</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="isAccountCreationError">{{message}}</div>
+  <div class="alert alert-success" *ngIf="isAccountCreationSuccess">{{message}}</div>
+</div>

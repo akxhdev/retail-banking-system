@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <app-tab-header title="Delete Customer"></app-tab-header>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <!-- customer-id -->
+    <div class="form-group row mt-2">
+      <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
+      <div class="col-5">
+        <input type="text" class="form-control" placeholder="Eg: 15082000" id="customerId" name="customerId" ngModel>
+      </div>
+    </div>
+
+    <!-- submit-button -->
+    <div class="mt-4 mb-4">
+      <button type="submit" class="btn btn-danger">Delete Customer</button>
+    </div>
+  </form>
+
+  <div class="alert alert-primary" *ngIf="message != null">{{message}}</div>
+</div>

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <strong>{{getTitle()}}</strong>
+      <div class="h6">
+        <small>{{getSubtitle()}}</small>
+      </div>
+    </a>
+
+    <ul class="nav navbar-nav ml-auto">
+      <li>
+        <button class="btn btn-light" (click)="logout()"><strong>Logout</strong></button>
+      </li>
+    </ul>
+  </div>
+</nav>

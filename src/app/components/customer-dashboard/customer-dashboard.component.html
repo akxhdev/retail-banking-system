@@ -1,0 +1,36 @@
+<app-dashboard-header role="customer"></app-dashboard-header>
+<div class="container-fluid">
+  <div class="row">
+    <!-- side-nav -->
+    <div class="col-3">
+      <div class="mt-3">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" (click)="changeTab(1)">Customer Details</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(2)">Transaction Details</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(3)">Withdraw Amount</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(4)">Transfer Amount</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- tab-content -->
+    <div class="col-8">
+      <div class="mt-3">
+        <div class="tab-content">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 1">
+            <app-customer-details [customer]="customer"></app-customer-details>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 2">
+            <app-transaction-details [customerId]="customerId"></app-transaction-details>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 3">
+            <app-withdraw-amount [customer]="customer"></app-withdraw-amount>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 4">
+            <app-transfer-amount [customer]="customer"></app-transfer-amount>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

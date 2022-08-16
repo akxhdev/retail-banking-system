@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <app-tab-header title="Create Customer"></app-tab-header>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <!-- customer-id -->
+    <div class="form-group row mt-2">
+      <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
+      <div class="col-5">
+        <input type="text" class="form-control" placeholder="Eg: customer01" id="customerId" name="customerId" ngModel>
+      </div>
+    </div>
+
+    <!-- name -->
+    <div class="form-group row mt-2">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-5">
+        <input type="text" class="form-control" placeholder="Eg: John Doe" id="name" name="name" ngModel />
+      </div>
+    </div>
+
+    <!-- password -->
+    <div class="form-group row mt-2">
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-5">
+        <input type="password" class="form-control" placeholder="Eg: mysecretkey" id="password" name="password"
+          ngModel />
+      </div>
+    </div>
+
+    <!-- date-of-birth -->
+    <div class="form-group row mt-2">
+      <label for="dateOfBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
+      <div class="col-5">
+        <input required type="date" id="dateOfBirth" name="dateOfBirth" placeholder="Eg: 01-01-2001"
+          class="form-control" ngModel />
+      </div>
+    </div>
+
+    <!-- pan no -->
+    <div class="form-group row mt-2">
+      <label for="pan" class="col-sm-2 col-form-label">PAN Number</label>
+      <div class="col-5">
+        <input required type="text" class="form-control" placeholder="Eg: XYRPS4005E" name="pan" id="pan" ngModel />
+      </div>
+    </div>
+
+    <!-- address -->
+    <div class="form-group row mt-2">
+      <label for="address" class="col-sm-2 col-form-label">Address</label>
+      <div class="col-5">
+        <input type="text" class="form-control" placeholder="Eg: 9203 Border Street" id="address" name="address"
+          ngModel />
+      </div>
+    </div>
+
+    <!-- submit-button -->
+    <div class="mt-4 mb-4">
+      <button type="submit" class="btn btn-success">Create Customer</button>
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessfull">{{message}}</div>
+  <div class="alert alert-danger" *ngIf="isError">{{message}}</div>
+</div>

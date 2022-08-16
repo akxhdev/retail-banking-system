@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <app-tab-header title="Deposit Amount"></app-tab-header>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <!-- account-id -->
+    <div class="form-group row mt-2">
+      <label for="accountId" class="col-sm-2 col-form-label">Account ID</label>
+      <div class="col-5">
+        <input type="text" class="form-control" placeholder="Eg: 1000000000" id="accountId" name="accountId" ngModel>
+      </div>
+    </div>
+
+    <!-- amount -->
+    <div class="form-group row mt-2">
+      <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+      <div class="col-5">
+        <input type="number" class="form-control" placeholder="Eg: 15000" id="amount" name="amount" ngModel>
+      </div>
+    </div>
+
+    <!-- submit-button -->
+    <div class="mt-4 mb-4">
+      <button type="submit" class="btn btn-success">Deposit</button>
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccess">{{message}}</div>
+  <div class="alert alert-danger" *ngIf="isError">{{message}}</div>
+</div>

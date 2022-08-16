@@ -1,0 +1,44 @@
+<app-dashboard-header role="employee"></app-dashboard-header>
+<div class="container-fluid">
+  <div class="row">
+    <!-- side-nav -->
+    <div class="col-3">
+      <div class="mt-3">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" (click)="changeTab(1)">Create Customer</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(2)">Create Account</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(3)">Delete Customer</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(4)">View Customer</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(5)">Deposit Amount</a>
+          <a class="list-group-item list-group-item-action" (click)="changeTab(6)">Service Charge Deduction</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- tab-content -->
+    <div class="col-8">
+      <div class="mt-3">
+        <div class="tab-content">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 1">
+            <app-create-customer></app-create-customer>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 2">
+            <app-create-account></app-create-account>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 3">
+            <app-delete-customer></app-delete-customer>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 4">
+            <app-view-customer></app-view-customer>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 5">
+            <app-deposit-amount></app-deposit-amount>
+          </div>
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 6">
+            <app-service-charge-deduction></app-service-charge-deduction>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
