@@ -5,12 +5,9 @@
     <div class="col-3">
       <div class="mt-3">
         <div class="list-group">
-          <a class="list-group-item list-group-item-action" (click)="changeTab(1)">Create Customer</a>
-          <a class="list-group-item list-group-item-action" (click)="changeTab(2)">Create Account</a>
-          <a class="list-group-item list-group-item-action" (click)="changeTab(3)">Delete Customer</a>
-          <a class="list-group-item list-group-item-action" (click)="changeTab(4)">View Customer</a>
-          <a class="list-group-item list-group-item-action" (click)="changeTab(5)">Deposit Amount</a>
-          <a class="list-group-item list-group-item-action" (click)="changeTab(6)">Service Charge Deduction</a>
+          <a *ngFor="let tab of tabs; let i = index;" [attr.data-index]="i"
+            class="list-group-item list-group-item-action" [class.active]="selectedTab === i"
+            (click)="changeTab(i)">{{tab}}</a>
         </div>
       </div>
     </div>
@@ -19,22 +16,22 @@
     <div class="col-8">
       <div class="mt-3">
         <div class="tab-content">
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 1">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 0">
             <app-create-customer></app-create-customer>
           </div>
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 2">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 1">
             <app-create-account></app-create-account>
           </div>
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 3">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 2">
             <app-delete-customer></app-delete-customer>
           </div>
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 4">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 3">
             <app-view-customer></app-view-customer>
           </div>
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 5">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 4">
             <app-deposit-amount></app-deposit-amount>
           </div>
-          <div class="tab-pane fade show active" *ngIf="selectedTab == 6">
+          <div class="tab-pane fade show active" *ngIf="selectedTab == 5">
             <app-service-charge-deduction></app-service-charge-deduction>
           </div>
         </div>

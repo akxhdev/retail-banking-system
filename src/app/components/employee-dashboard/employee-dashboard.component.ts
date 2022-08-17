@@ -8,7 +8,16 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   styleUrls: ['./employee-dashboard.component.css'],
 })
 export class EmployeeDashboardComponent implements OnInit {
-  selectedTab: number = 1;
+  tabs = [
+    'Create Customer',
+    'Create Account',
+    'Delete Customer',
+    'View Customer',
+    'Deposit Amount',
+    'Service Charge Deduction',
+  ];
+
+  selectedTab: number = 0;
 
   constructor() {}
 

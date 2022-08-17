@@ -10,7 +10,14 @@ import { CustomerService } from 'src/app/services/customer-service/customer.serv
   styleUrls: ['./customer-dashboard.component.css'],
 })
 export class CustomerDashboardComponent implements OnInit {
-  selectedTab: number = 4;
+  tabs = [
+    'Customer Details',
+    'Transaction Details',
+    'Withdraw Amount',
+    'Transfer Amount',
+  ];
+
+  selectedTab: number = 0;
   customerId: string;
   customer: Customer | null = null;
 
