@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   styleUrls: ['./employee-dashboard.component.css'],
 })
 export class EmployeeDashboardComponent implements OnInit {
-  selectedTab: number = 5;
+  selectedTab: number = 1;
 
   constructor() {}
 

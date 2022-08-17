@@ -15,21 +15,6 @@ export class AccountService {
 
   // get account
   public getAccount(accountId: string): Observable<Account> {
-    // dummy code
-    return new Observable<Account>((observer) => {
-      let account = new Account(
-        '10001452',
-        'customer101',
-        15000,
-        'SAVINGS',
-        new Date(),
-        'AKSHAY',
-        []
-      );
-
-      observer.next(account);
-    });
-
     return this.http.get<Account>(this.host + '/getAccount/' + accountId, {
       headers: this.authService.getHeader(),
     });
@@ -46,16 +31,6 @@ export class AccountService {
       ownerName: string;
     }
   ): Observable<AccountCreationStatus> {
-    // dummy code
-    // return new Observable<AccountCreationStatus>((observer) => {
-    //   let account = new AccountCreationStatus(
-    //     '10001452',
-    //     'account created successfully!!'
-    //   );
-
-    //   observer.next(account);
-    // });
-
     return this.http.post<AccountCreationStatus>(
       this.host + '/createAccount/' + customerId,
       account,
@@ -105,5 +80,23 @@ export class AccountService {
         headers: this.authService.getHeader(),
       }
     );
+  }
+
+  // deduct service charge
+  public deductServiceCharge(): Observable<Account[]> {
+    return this.http.post<Account[]>(
+      'http://localhost:8086/rules-ms/serviceCharges',
+      null,
+      {
+        headers: this.authService.getHeader(),
+      }
+    );
+  }
+
+  // get all accounts
+  public getAllAccounts(): Observable<Account[]> {
+    return this.http.get<Account[]>(this.host + '/find', {
+      headers: this.authService.getHeader(),
+    });
   }
 }

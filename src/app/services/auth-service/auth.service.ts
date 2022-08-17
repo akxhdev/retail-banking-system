@@ -21,11 +21,11 @@ export class AuthService {
     role: string;
   }): Observable<AppUser> {
     // dummy code
-    // return new Observable<AppUser>((observer) => {
-    //   let account = new AppUser('15082001', 'Alex', 'alex1234', '', 'EMPLOYEE');
+    return new Observable<AppUser>((observer) => {
+      let account = new AppUser('15082001', 'Alex', 'alex1234', '', 'EMPLOYEE');
 
-    //   observer.next(account);
-    // });
+      observer.next(account);
+    });
 
     // this.autoLogout(360000);
     return this.httpClient.post<AppUser>(this.host + '/login', user);

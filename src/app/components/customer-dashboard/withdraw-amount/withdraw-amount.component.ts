@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Account } from 'src/app/models/account';
+import { AccountErrorResponse } from 'src/app/models/account_error_response';
 import { Customer } from 'src/app/models/customer';
 import { AccountService } from 'src/app/services/account-service/account.service';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
@@ -48,7 +49,9 @@ export class WithdrawAmountComponent implements OnInit {
         // reset flags
         this.resetFlags();
       },
-      error: (error) => {
+      error: (error: AccountErrorResponse) => {
+        console.log(error);
+
         this.isError = true;
         this.message = 'Unable to process your request.';
 

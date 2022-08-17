@@ -25,7 +25,6 @@ import { TransferAmountComponent } from './components/customer-dashboard/transfe
 import { CustomerDetailsComponent } from './components/customer-dashboard/customer-details/customer-details.component';
 import { TransactionDetailsComponent } from './components/customer-dashboard/transaction-details/transaction-details.component';
 import { CustomerService } from './services/customer-service/customer.service';
-import { TransactionService } from './services/transaction-service/transaction.service';
 import { AccountService } from './services/account-service/account.service';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
@@ -63,7 +62,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
       { path: '**', component: PageNotFoundComponent },
     ]),
   ],
-  providers: [AuthService, CustomerService, TransactionService, AccountService],
+  providers: [AuthService, CustomerService, AccountService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

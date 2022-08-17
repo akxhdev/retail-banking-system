@@ -32,6 +32,8 @@ export class DepositAmountComponent implements OnInit {
         this.message = 'Deposit successfull.';
       },
       error: (error) => {
+        console.log(error);
+
         this.isError = true;
         this.message = 'Unable to process your request';
 
@@ -48,6 +50,7 @@ export class DepositAmountComponent implements OnInit {
     setTimeout(() => {
       this.isError = false;
       this.isSuccess = false;
+      this.message = null;
     }, 2000);
   }
 }
