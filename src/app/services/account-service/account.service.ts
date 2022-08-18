@@ -92,11 +92,4 @@ export class AccountService {
       }
     );
   }
-
-  // get all accounts
-  public getAllAccounts(): Observable<Account[]> {
-    return this.http.get<Account[]>(this.host + '/find', {
-      headers: this.authService.getHeader(),
-    });
-  }
 }

@@ -5,7 +5,12 @@
   <p class="h5">Charges will be deducted for not maintaining minimum balance</p>
 
   <!-- submit -->
-  <div class="mt-4 mb-4">
-    <button type="button" class="btn btn-danger" (click)="deductServiceCharge()">Deduct</button>
+  <div class="mt-4 mb-4" style="display: inline;">
+    <button type="button" class="btn btn-danger " (click)="deductServiceCharge()"
+      [class.disabled]="isLoading">Deduct</button>
   </div>
+
+  <app-loading-spinner *ngIf="isLoading" class="mt-4"></app-loading-spinner>
+
+  <div class="alert alert-danger mt-4" *ngIf="isError">Unable to process</div>
 </div>

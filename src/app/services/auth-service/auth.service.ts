@@ -8,7 +8,10 @@ import { AppUser } from 'src/app/models/app_user';
   providedIn: 'root',
 })
 export class AuthService {
+  // private readonly host =
+  // 'http://ec2-3-80-241-148.compute-1.amazonaws.com:8082/authentication-ms';
   private readonly host = 'http://localhost:8082/authentication-ms';
+
   isAuthenticated = new Subject<boolean>();
   clearTimer: any;
 

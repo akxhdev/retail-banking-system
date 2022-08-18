@@ -27,6 +27,7 @@ import { TransactionDetailsComponent } from './components/customer-dashboard/tra
 import { CustomerService } from './services/customer-service/customer.service';
 import { AccountService } from './services/account-service/account.service';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { LoadingService } from './services/loading-service/loading.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
       { path: '**', component: PageNotFoundComponent },
     ]),
   ],
-  providers: [AuthService, CustomerService, AccountService],
+  providers: [AuthService, CustomerService, AccountService, LoadingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

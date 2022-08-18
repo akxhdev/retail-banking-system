@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AccountService } from 'src/app/services/account-service/account.service';
+import { LoadingService } from 'src/app/services/loading-service/loading.service';
 
 @Component({
   selector: 'app-deposit-amount',
@@ -11,11 +12,21 @@ export class DepositAmountComponent implements OnInit {
   isError: boolean = false;
   isSuccess: boolean = false;
   message: string | null = null;
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private loadingService: LoadingService
+  ) {}
 
   ngOnInit(): void {}
 
+  public get isLoading() {
+    return this.loadingService.isLoading;
+  }
+
   public onSubmit(form: NgForm) {
+    // start loading
+    this.loadingService.startLoading();
+
     let accountId: string = form.value['accountId'];
     let amount: number = form.value['amount'];
 
@@ -28,11 +39,15 @@ export class DepositAmountComponent implements OnInit {
 
     this.accountService.deposit(accountInput).subscribe({
       next: (account) => {
+        // stop loading
+        this.loadingService.stopLoading();
+
         this.isSuccess = true;
         this.message = 'Deposit successfull.';
       },
       error: (error) => {
-        console.log(error);
+        // stop loading
+        this.loadingService.stopLoading();
 
         this.isError = true;
         this.message = 'Unable to process your request';
