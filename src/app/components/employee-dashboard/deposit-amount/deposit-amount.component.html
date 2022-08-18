@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <app-tab-header title="Deposit Amount"></app-tab-header>
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm" class="mt-4" (ngSubmit)="onSubmit(form)">
     <!-- account-id -->
     <div class="form-group row mt-2">
       <label for="accountId" class="col-sm-2 col-form-label">Account ID</label>
@@ -20,7 +20,7 @@
 
     <!-- submit-button -->
     <div class="mt-4 mb-4">
-      <button type="submit" class="btn btn-success">Deposit</button>
+      <button type="submit" class="btn btn-success w-full bg-custom-orange">Deposit</button>
     </div>
   </form>
 
