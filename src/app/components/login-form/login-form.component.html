@@ -1,8 +1,8 @@
-<div class="login-form-container card">
-  <h1>Welcome Back, User</h1>
-  <h6>Login as {{isEmployeeForm ? "Employee" : "Customer"}}</h6>
+<div class="login-form-container shadow-lg card">
+  <h1 class="text-4xl font-extrabold self-center font-sans">Welcome</h1>
+  <h6 class="self-center px-2">Login as {{isEmployeeForm ? "Employee" : "Customer"}}</h6>
 
-  <div class="mt-4 mb-4">
+  <div class="mt-4">
     <form #login="ngForm" (ngSubmit)="submitForm(login)">
       <div class="form-group mb-3">
         <label for="userId">User Id</label>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="w-full btn btn-primary bg-custom-orange">Login</button>
       </div>
 
     </form>
@@ -26,6 +26,5 @@
         "Customer":"Employee"}}</button>
     </div>
   </div>
+  <div class="alert self-center alert-danger w-max" *ngIf="isAuthError == true">{{errorMessage}}</div>
 </div>
-
-<div class="alert alert-danger mt-4 mb-4" *ngIf="isAuthError == true">{{errorMessage}}</div>
