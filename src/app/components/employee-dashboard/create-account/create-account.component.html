@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <app-tab-header title="Customer Details"></app-tab-header>
 
-  <form class="form-inline mb-4" #customerForm="ngForm" (ngSubmit)="onSubmitCustomerForm(customerForm)">
+  <form class="form-inline mb-4 mt-4" #customerForm="ngForm" (ngSubmit)="onSubmitCustomerForm(customerForm)">
     <div class="input-group row">
       <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
       <div class="col-5">
         <input class="form-control" id="customerId" name="customerId" placeholder="Eg: customer101" ngModel>
       </div>
       <div class="col-3">
-        <button class="btn btn-primary" type="submit">Get Customer</button>
+        <button class="btn btn-primary w-full bg-custom-orange" type="submit">Get Customer</button>
       </div>
     </div>
   </form>

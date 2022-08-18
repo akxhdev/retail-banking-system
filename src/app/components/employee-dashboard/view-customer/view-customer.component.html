@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <app-tab-header title="View Customer"></app-tab-header>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm" class="mt-4" (ngSubmit)="onSubmit(form)">
     <!-- customer-id -->
     <div class="form-group row mt-2">
       <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
@@ -11,9 +11,11 @@
 
     <!-- submit-button -->
     <div class="row mt-4 mb-4">
-      <div class="col-2 ">
-        <button type="submit" class="btn btn-primary">View Customer</button>
-      </div>
+      <!-- <div class="col-2 ">
+        <button type="submit" class="btn btn-primary w-full bg-custom-orange">View Customer</button>
+      </div> -->
+      <button type="submit" class="btn btn-primary w-full bg-custom-orange">View Customer</button>
+
       <div class="col-2">
         <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
       </div>
