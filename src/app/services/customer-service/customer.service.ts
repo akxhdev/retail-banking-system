@@ -10,7 +10,7 @@ import { AuthService } from '../auth-service/auth.service';
   providedIn: 'root',
 })
 export class CustomerService {
-  private host: string = 'http://localhost:8083/customer-ms';
+  private host: string = 'http://ec2-3-80-244-130.compute-1.amazonaws.com:8083/customer-ms';
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   // create customer
