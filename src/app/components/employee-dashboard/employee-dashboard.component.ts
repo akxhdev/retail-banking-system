@@ -19,9 +19,13 @@ export class EmployeeDashboardComponent implements OnInit {
 
   selectedTab: number = 0;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
+
+  public get name(): string {
+    return this.authService.getName();
+  }
 
   public changeTab(selected: number) {
     this.selectedTab = selected;

@@ -32,6 +32,10 @@ export class CustomerDashboardComponent implements OnInit {
     this.getCustomer();
   }
 
+  public get name(): string {
+    return this.authService.getName();
+  }
+
   ngOnInit(): void {}
 
   public changeTab(selected: number) {

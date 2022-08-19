@@ -66,11 +66,12 @@
 
       <!-- submit-button -->
       <div class="mt-4 mb-4">
-        <button type="submit" class="btn btn-success">Create Account</button>
+        <button type="submit" class="btn btn-success bg-custom-orange">Create Account</button>
       </div>
     </form>
   </div>
 
-  <div class="alert alert-danger" *ngIf="isAccountCreationError">{{message}}</div>
+  <div class=" alert alert-danger" *ngIf="isAccountCreationError">{{message}}
+  </div>
   <div class="alert alert-success" *ngIf="isAccountCreationSuccess">{{message}}</div>
 </div>

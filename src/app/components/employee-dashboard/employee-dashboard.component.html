@@ -6,15 +6,16 @@
       <div class="mt-3">
         <div class="list-group drop-shadow-xl rounded-lg">
           <div class="mb-2 flex justify-center">
-            <img src="https://img.freepik.com/premium-vector/user-icon_126283-435.jpg?w=2000" class="h-40 w-40 rounded-full" alt="">
+            <img src="https://img.freepik.com/premium-vector/user-icon_126283-435.jpg?w=2000"
+              class="h-40 w-40 rounded-full" alt="">
           </div>
           <div class="mb-2">
-            <p class="text-lg font-semibold flex justify-center">Welcome, Alex</p>
-          <p class="font-semibold flex justify-center">Employee</p>
+            <p class="text-lg font-semibold flex justify-center">Welcome, {{name}}</p>
+            <p class="font-semibold flex justify-center">EMPLOYEE</p>
           </div>
           <a *ngFor="let tab of tabs; let i = index;" [attr.data-index]="i"
-            class="list-group-item list-group-item-action rounded-lg m-1 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-x-105 hover:bg-indigo-500 duration-300" [class.active]="selectedTab === i"
-            (click)="changeTab(i)">{{tab}}</a>
+            class="list-group-item list-group-item-action rounded-lg m-1 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-x-105 hover:bg-indigo-500 duration-300"
+            [class.active]="selectedTab === i" (click)="changeTab(i)">{{tab}}</a>
         </div>
       </div>
     </div>
@@ -55,7 +56,8 @@
       <!-- <div class="mb-2 mt-3 flex justify-center">
         <img src="https://as1.ftcdn.net/v2/jpg/02/54/80/56/1000_F_254805632_HgiyyLs0mYHHSXht28O0s3dXvH1U26HA.jpg" class="h-24 ml-4 w-full" alt="">
       </div> -->
-      <div class="mt-3 ml-4 mb-8 bg-white shadow-lg rounded-lg transition ease-in-out delay-150 bg-blue-500 hover:translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300">
+      <div
+        class="mt-3 ml-4 mb-8 bg-white shadow-lg rounded-lg transition ease-in-out delay-150 bg-blue-500 hover:translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300">
         <div class="tab-content p-4 ">
           <div class="tab-pane fade show active" *ngIf="selectedTab == 0">
             <app-create-customer class=""></app-create-customer>
