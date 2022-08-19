@@ -10,7 +10,7 @@ import { AuthService } from '../auth-service/auth.service';
   providedIn: 'root',
 })
 export class AccountService {
-  private readonly host = 'http://localhost:8084/account-ms';
+  private readonly host = 'http://ec2-52-90-72-28.compute-1.amazonaws.com:8084/account-ms';
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   // get account
